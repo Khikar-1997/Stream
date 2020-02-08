@@ -23,10 +23,9 @@ public class Main {
                 .filter((each) -> each.getAge() >= 18)
                 .collect(Collectors.toList());
 
-        Map<Boolean, List<Person>> booleanListMap = new HashMap<>();
-        booleanListMap.put(true, adult);
-        booleanListMap.put(false, kids);
-        booleanListMap.values().forEach(System.out::println);
-
+        Map<Boolean, List<Person>> personListByAge = new HashMap<>();
+        personListByAge.put(true, adult);
+        personListByAge.put(false, kids);
+        personListByAge.values().forEach(System.out::println);
     }
 }

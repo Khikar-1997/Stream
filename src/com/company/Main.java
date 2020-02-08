@@ -14,7 +14,7 @@ public class Main {
         text.add(" John");
         text.add(" Doe");
         List<String> collect = text.stream()
-                .map(String::toUpperCase)
+                .filter((each) -> each.length() - 1 <= 3)
                 .collect(Collectors.toList());
         collect.forEach(System.out::print);
     }

@@ -15,17 +15,10 @@ public class Main {
         people.add(victor);
         people.add(eva);
 
-        List<Person> norvegian = people.stream()
-                .filter((each) -> each.getNationality().equals(Nationality.NORWEGIAN))
-                .collect(Collectors.toList());
-
-        List<Person> serbian = people.stream()
-                .filter((each) -> each.getNationality().equals(Nationality.SERBIAN))
-                .collect(Collectors.toList());
-
-        Map<String, List<Person>> personsListByNationality = new HashMap<>();
-        personsListByNationality.put(Nationality.NORWEGIAN.toString(), norvegian);
-        personsListByNationality.put(Nationality.SERBIAN.toString(), serbian);
-        personsListByNationality.values().forEach(System.out::println);
+        String collect = people.stream()
+                .map(Person::getName)
+                .collect(Collectors.joining(","));
+        
+        System.out.println("Names: " + collect);
     }
 }

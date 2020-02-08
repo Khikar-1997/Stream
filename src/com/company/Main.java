@@ -1,21 +1,21 @@
 package com.company;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<String> text = new ArrayList<>();
-        text.add("My");
-        text.add(" name");
-        text.add(" is");
-        text.add(" John");
-        text.add(" Doe");
+
+        List<List<String>> text = Stream.of(Arrays.asList("Victor ", "Farcic "), Arrays.asList("John ", "Doe ", "Third"))
+                .collect(Collectors.toList());
         List<String> collect = text.stream()
-                .filter((each) -> each.length() - 1 <= 3)
+                .flatMap(Collection::stream)
                 .collect(Collectors.toList());
         collect.forEach(System.out::print);
+
     }
 }

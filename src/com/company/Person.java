@@ -7,14 +7,16 @@ public class Person {
 
     private String name;
     private int age;
+    private Nationality nationality;
 
     //endregion
 
     //region Constructors
 
-    public Person(String name, int age) {
+    public Person(String name, int age, Nationality nationality) {
         this.name = name;
         this.age = age;
+        this.nationality = nationality;
     }
 
     public Person() {
@@ -40,6 +42,14 @@ public class Person {
         this.age = age;
     }
 
+    public Nationality getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(Nationality nationality) {
+        this.nationality = nationality;
+    }
+
     //endregion
 
     //region equals,hashCode and toString Public Methods
@@ -50,12 +60,13 @@ public class Person {
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
         return age == person.age &&
-                Objects.equals(name, person.name);
+                Objects.equals(name, person.name) &&
+                Objects.equals(nationality, person.nationality);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age);
+        return Objects.hash(name, age, nationality);
     }
 
     @Override
@@ -63,6 +74,7 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", nationality='" + nationality + '\'' +
                 '}';
     }
 
